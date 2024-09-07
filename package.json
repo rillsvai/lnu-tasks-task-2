@@ -1,8 +1,7 @@
 {
   "name": "task-2",
   "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
+  "main": "index.ts",
   "scripts": {
     "start:dev": "nodemon src/index.ts",
     "lint": "eslint src/ --fix",
