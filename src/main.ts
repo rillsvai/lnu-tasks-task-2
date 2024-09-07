@@ -3,7 +3,7 @@ import express from 'express';
 import { appRouter } from './app.router';
 import { appLogger } from './common/logger/logger.config';
 
-const app: Application = express();
+export const app: Application = express();
 
 app.use(express.json());
 app.use(appRouter);

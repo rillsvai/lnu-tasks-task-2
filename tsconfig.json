@@ -8,11 +8,15 @@
     "moduleDetection": "auto",
     "module": "NodeNext",
     "rootDir": "./src",
+    "paths": {
+      "src/*": ["src/*"]
+    },
     "moduleResolution": "NodeNext",
     "baseUrl": "./",
     "resolvePackageJsonExports": true,
     "resolvePackageJsonImports": true,
     "sourceMap": true,
+    "esModuleInterop": true,
     "outDir": "./dist",
     "removeComments": true,
     "newLine": "lf",
@@ -20,6 +24,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["dist"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
 }
