@@ -2,8 +2,11 @@
   "name": "task-2",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon src/index.ts",
+    "lint": "eslint src/ --fix",
+    "format": "npx prettier --write ./src"
   },
   "keywords": [],
   "author": "",
