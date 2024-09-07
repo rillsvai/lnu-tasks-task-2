@@ -1,6 +1,6 @@
-import { z } from "zod";
-import { appValidationErrorMessages } from "./validation.constants";
-import { Language } from "../../app.type";
+import { z } from 'zod';
+import { appValidationErrorMessages } from './validation.constants';
+import { Language } from '../../app.type';
 
 export const stringPositiveIntegerSchema = (lang: Language) => {
   return z.coerce
@@ -24,25 +24,16 @@ export const stringNumberSchema = (lang: Language) => {
 
 /* eslint-disable */
 export const commaSeparatedPositiveIntegersSchema = (lang: Language) => {
-  return z
-    .string({ message: appValidationErrorMessages.REQUIRED[lang] })
-    .refine(
-      (value: string) => {
-        const ids = value.split(",");
-        return ids.every(
-          (id) =>
-            !isNaN(id as any) &&
-            !isNaN(parseFloat(id)) &&
-            Number.isInteger(parseFloat(id)) &&
-            parseInt(id) > 0
-        );
-      },
-      {
-        message:
-          appValidationErrorMessages.MUST_BE_COMMA_SEPARATED_POSITIVE_INTEGERS[
-            lang
-          ],
-      }
-    );
+  return z.string({ message: appValidationErrorMessages.REQUIRED[lang] }).refine(
+    (value: string) => {
+      const ids = value.split(',');
+      return ids.every(
+        (id) => !isNaN(id as any) && !isNaN(parseFloat(id)) && Number.isInteger(parseFloat(id)) && parseInt(id) > 0
+      );
+    },
+    {
+      message: appValidationErrorMessages.MUST_BE_COMMA_SEPARATED_POSITIVE_INTEGERS[lang],
+    }
+  );
 };
 /* eslint-enable */

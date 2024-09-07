@@ -1,4 +1,4 @@
-import { AppErrorMessage } from "./response.enum";
+import { AppErrorMessage } from './response.enum';
 
 /* eslint-disable */
 export interface AppErrorReponse {

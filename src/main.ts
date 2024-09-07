@@ -1,7 +1,7 @@
-import { Application } from "express";
-import express from "express";
-import { appRouter } from "./app.router";
-import { appLogger } from "./common/logger/logger.config";
+import { Application } from 'express';
+import express from 'express';
+import { appRouter } from './app.router';
+import { appLogger } from './common/logger/logger.config';
 
 const app: Application = express();
 
@@ -13,10 +13,10 @@ app
   .listen(8080, () => {
     appLogger.info(`service listening on port: ${8080}`);
   })
-  .on("error", (error) => {
+  .on('error', (error) => {
     appLogger.error(`server launching has failed: ${error}`);
     process.exit(1);
   })
-  .on("close", async () => {
-    appLogger.info("closing application...");
+  .on('close', async () => {
+    appLogger.info('closing application...');
   });

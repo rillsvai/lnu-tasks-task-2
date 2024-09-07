@@ -19,7 +19,10 @@ export function sendSuccessfulAppResponse<T>(
 }
 
 export function sendFailedAppResponse(res: Response, error: AppError) {
-  const payload: AppErrorReponse = { message: error.message, validationErrors: {} };
+  const payload: AppErrorReponse = {
+    message: error.message,
+    validationErrors: {},
+  };
 
   if (error.validationErrors && error.validationErrors.length !== 0) {
     payload.validationErrors = mergeValidationErrors(error.validationErrors);

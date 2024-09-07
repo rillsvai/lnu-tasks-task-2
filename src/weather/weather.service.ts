@@ -1,4 +1,4 @@
-import { appLogger } from "src/common/logger/logger.config";
+import { appLogger } from 'src/common/logger/logger.config';
 
 export const getWeatherData = async (lon: string, lat: string) => {
   appLogger.info(`fetching weather data for lat: ${lat} and lon: ${lon}`);

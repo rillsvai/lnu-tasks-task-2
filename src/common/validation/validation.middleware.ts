@@ -1,9 +1,9 @@
-import { NextFunction, Request, Response } from "express";
-import { z, ZodError } from "zod";
-import { AppErrorMessage, ErrorStatusCode } from "../response/response.enum";
-import { AppError } from "../error/error";
-import { Language } from "../../app.type";
-import { sendFailedAppResponse } from "../response/response.service";
+import { NextFunction, Request, Response } from 'express';
+import { z, ZodError } from 'zod';
+import { AppErrorMessage, ErrorStatusCode } from '../response/response.enum';
+import { AppError } from '../error/error';
+import { Language } from '../../app.type';
+import { sendFailedAppResponse } from '../response/response.service';
 
 /* eslint-disable */
 export const applyValidationSchema =
@@ -13,7 +13,7 @@ export const applyValidationSchema =
     params?: (lang: Language) => z.ZodSchema<any>;
   }) =>
   (req: Request, res: Response, next: NextFunction) => {
-    const lang: Language = (req.headers["lang"] as Language) || "en";
+    const lang: Language = (req.headers['lang'] as Language) || 'en';
 
     try {
       const validationErrors: Record<string, string> = {};
@@ -23,7 +23,7 @@ export const applyValidationSchema =
         } catch (error) {
           if (error instanceof ZodError) {
             error.errors.forEach((err) => {
-              const path = err.path.join(".");
+              const path = err.path.join('.');
               if (!validationErrors[path]) {
                 validationErrors[path] = err.message;
               }
@@ -44,11 +44,7 @@ export const applyValidationSchema =
       }
 
       if (Object.keys(validationErrors).length > 0) {
-        const appError = new AppError(
-          AppErrorMessage.INVALID_REQUEST,
-          ErrorStatusCode.BAD_REQUEST,
-          [validationErrors]
-        );
+        const appError = new AppError(AppErrorMessage.INVALID_REQUEST, ErrorStatusCode.BAD_REQUEST, [validationErrors]);
         return sendFailedAppResponse(res, appError);
       }
 

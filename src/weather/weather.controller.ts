@@ -1,6 +1,6 @@
-import { Response, Request } from "express";
-import { sendSuccessfulAppResponse } from "../common/response/response.service";
-import { getWeatherData } from "./weather.service";
+import { Response, Request } from 'express';
+import { sendSuccessfulAppResponse } from '../common/response/response.service';
+import { getWeatherData } from './weather.service';
 
 export const getCurrentWeather = async (req: Request, res: Response) => {
   const { lat, lon } = req.query;

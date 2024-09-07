@@ -1,5 +1,5 @@
-import { AppErrorMessage, ErrorStatusCode } from "../response/response.enum";
-import { AppValidationError } from "./error.type";
+import { AppErrorMessage, ErrorStatusCode } from '../response/response.enum';
+import { AppValidationError } from './error.type';
 
 export class AppError extends Error {
   constructor(
