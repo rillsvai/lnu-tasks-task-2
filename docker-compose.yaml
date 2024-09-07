@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  k6:
+    container_name: k6
+    image: loadimpact/k6
+    volumes:
+      - ./src:/src
+    entrypoint: ['k6', 'run', '/src/tests/weather/weather.load.js']

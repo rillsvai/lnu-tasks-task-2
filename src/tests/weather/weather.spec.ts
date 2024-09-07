@@ -1,5 +1,5 @@
 import { appValidationErrorMessages } from 'src/common/validation/validation.constants';
-import { app, server } from '../main';
+import { app, server } from '../../main';
 import request from 'supertest';
 import { Language } from 'src/app.type';
 import { AppErrorMessage } from 'src/common/response/response.enum';
