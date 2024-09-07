@@ -7,6 +7,7 @@
     "useDefineForClassFields": true,
     "moduleDetection": "auto",
     "module": "NodeNext",
+    "esModuleInterop": true,
     "rootDir": "./src",
     "moduleResolution": "NodeNext",
     "baseUrl": "./",
